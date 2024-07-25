@@ -54,8 +54,7 @@ def extract_book_data(html):
 def download_book(book_url):
     print('Trying to download a book ' + book_url)
     current_directory = os.getcwd()
-    parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
-    download_directory = os.path.join(parent_directory, 'downloads')
+    download_directory = os.path.join(current_directory, 'downloads')
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option('prefs', {
