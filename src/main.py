@@ -88,7 +88,7 @@ def download_book(book_url):
     except Exception as e:
         print(f"Error clicking the download button: {e}")
 
-    time.sleep(10)
+    time.sleep(1)
 
     print('Book download finished: ' + book['title'])
 
@@ -102,15 +102,10 @@ if __name__ == '__main__':
     if not url.startswith("https://fliphtml5.com/bookcase/"):
         print("Wrong URL provided. Use a fully qualified URL: 'https://fliphtml5.com/bookcase/<BOOKCASE_ID>'")
 
-    print("Processing URL: " + url)
-
     page_html = get_page(url)
-    print(page_html)
     books = extract_book_data(page_html)
 
     for book in books:
         print(book['title'], book['url'])
-
-    for book in books:
         download_book(book['url'])
         time.sleep(2)
